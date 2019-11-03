@@ -1,7 +1,7 @@
 # Histogram
 
 **Farhan Furqan**  
-**09021281722075**  
+**09021281722045**  
 **Teknik Informatika Reg 5A**
 
 Cara membuat histogram citra menggunakan bahasa Python.                               
@@ -25,16 +25,14 @@ from os.path import splitext
 from PIL import Image
 
 def get_file_name(file_path):
-    # https://stackoverflow.com/a/678266/9157799
     return splitext(basename(file_path))[0]
 
 def tampilkan_histogram(r, g, b, gambar):
     intensitas = list(range(256))
     lebar_bar = 0.3
 
-    # https://stackoverflow.com/q/9304408/9157799
     intensitas = [i-lebar_bar for i in intensitas]
-    # https://stackoverflow.com/q/14270391/9157799
+
     pyplot.bar(intensitas, r, width=lebar_bar, color='r')
 
     intensitas = [i+lebar_bar for i in intensitas]
@@ -65,7 +63,6 @@ def histogram(gambar):
     gambar_b = Image.new('RGB', (ukuran_horizontal, ukuran_vertikal))
     pixel_b = gambar_b.load()
 
-    # https://stackoverflow.com/q/10712002/9157799
     r = [0] * 256
     g = [0] * 256
     b = [0] * 256
@@ -87,7 +84,6 @@ def histogram(gambar):
     gambar_b.save('img/' + get_file_name(gambar) + '_B.jpg')
 
     tampilkan_histogram(r, g, b, gambar)
-
 
 histogram('img/gambar.jpg')
 ```
